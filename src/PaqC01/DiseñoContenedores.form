@@ -711,6 +711,34 @@
           <text value="2"/>
         </properties>
       </component>
+      <component id="d9b50" class="javax.swing.JButton" binding="stringButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="String"/>
+        </properties>
+      </component>
+      <component id="2a7ae" class="javax.swing.JTextField" binding="pesoLimiteTextField" default-binding="true">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="PesoLimite"/>
+        </properties>
+      </component>
+      <component id="76f95" class="javax.swing.JTextField" binding="elegirHubTextField" default-binding="true">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="ElegirHub"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

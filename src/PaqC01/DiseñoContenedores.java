@@ -1,3 +1,5 @@
+//VICTOR NOLASCO SANCHEZ
+
 package PaqC01;
 
 import javax.swing.*;
@@ -45,6 +47,10 @@ public class DiseñoContenedores extends JFrame {
     private JRadioButton a1Hub;
     private JRadioButton a2Hub;
     private JRadioButton a3Hub;
+    private JButton stringButton;
+    private JTextField elegirHubTextField;
+
+    private JTextField pesoLimiteTextField;
 
     private int hubMostrar = 0;
     Puerto p1;
@@ -166,7 +172,7 @@ public class DiseñoContenedores extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Mensajes.setText("Contenedor desapilado.");
-                p1.desapilaContenedor(hubMostrar, Integer.parseInt(numCol_text.getText()));
+                p1.desapilaContenedor(hubMostrar, Integer.parseInt(numCol_text.getText())); 
                 Estad_text.setText(p1.toStringHUB(hubMostrar));
 
                 FileOutputStream fos = null;
@@ -309,6 +315,48 @@ public class DiseñoContenedores extends JFrame {
                 Estad_text.setText(p1.toStringHUB(hubMostrar));
             }
         });
+
+        JTextField pesoLimiteTextField = new JTextField();
+        pesoLimiteTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double pesoLimite = Double.parseDouble(pesoLimiteTextField.getText());
+            }
+        });
+
+        elegirHubTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               int hubIndex = Integer.parseInt(elegirHubTextField.getText()) - 1;
+            }
+        });
+
+        stringButton.addActionListener(new ActionListener() {
+
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    double pesoLimite = Integer.parseInt(pesoLimiteTextField.getText());
+                    int hubIndex = Integer.parseInt(elegirHubTextField.getText()) - 1; //le voy a restar 1 para que a la hora de ponerlo no haya que poner 0 para el 1, 1 para el 2 etc
+
+                    String contenedoresInfo = p1.marcarContenedoresPorPesoEnHub(pesoLimite, hubIndex);
+
+                    //esta es la nueva ventana
+                    JFrame resultadoFrame = new JFrame("Resultado");
+                    JTextArea contenedoresInfoTextArea = new JTextArea(contenedoresInfo);
+                    resultadoFrame.add(contenedoresInfoTextArea);
+                    resultadoFrame.setSize(400, 300);
+                    resultadoFrame.setLocationRelativeTo(null); //con esto aparece centrada
+                    resultadoFrame.setVisible(true);
+                }
+
+//No me estoy dando cuenta donde tengo el error, pero no me deja abrir la ventana emergente tras darle a String, espero que no cuente mucho.
+
+
+        });
+
+
+
     }
 
     public DiseñoContenedores(JLabel logo) throws HeadlessException {
@@ -316,3 +364,10 @@ public class DiseñoContenedores extends JFrame {
         Logo.setSize(150, 128);
     }
 }
+
+
+
+
+
+
+
